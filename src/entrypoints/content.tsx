@@ -7,7 +7,7 @@ export default defineContentScript({
     const iframe = document.querySelector('#content > #contentIframe')
     if (!iframe) return
 
-    const mutationCallback: MutationCallback = (mutations) => {
+    const renderAddons: MutationCallback = (mutations) => {
       for (const mutation of mutations) {
         if (!isIframe(mutation.target)) break
         const iframe = mutation.target as HTMLIFrameElement
@@ -17,7 +17,7 @@ export default defineContentScript({
       }
     }
 
-    const observer = new MutationObserver(mutationCallback)
+    const observer = new MutationObserver(renderAddons)
 
     observer.observe(iframe, {
       attributes: true,
