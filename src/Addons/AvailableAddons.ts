@@ -1,5 +1,5 @@
 import ParentalControlAddon from "./ParentalControl";
 
-const addons = [ParentalControlAddon]
+const availableAddons = [ParentalControlAddon]
 
-export default addons
+export default availableAddons
