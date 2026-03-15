@@ -1,14 +1,11 @@
 import AddonManager from "@/Addons/AddonManager";
+import isIframe from "@/Addons/helpers/isIframe";
 
 export default defineContentScript({
   matches: ['*://*/*'],
   async main(ctx) {
     const iframe = document.querySelector('#content > #contentIframe')
     if (!iframe) return
-
-    function isIframe(node: any) {
-      return (node as HTMLIFrameElement).contentWindow ? true : false
-    }
 
     const mutationCallback: MutationCallback = (mutations) => {
       for (const mutation of mutations) {
