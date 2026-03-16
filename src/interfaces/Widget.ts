@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
 export default interface Widget {
-    destinationQuery: string
-    init(iframeDoc: Document): React.JSX.Element
+  destinationQuery: string;
+  init(iframeDoc: Document): React.JSX.Element;
 }

@@ -1,5 +1,5 @@
 import Widget from "./Widget";
 
-type WidgetConstructor = new () => Widget
+type WidgetConstructor = new () => Widget;
 
-export { WidgetConstructor }
+export { WidgetConstructor };

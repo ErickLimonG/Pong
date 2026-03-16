@@ -1,6 +1,6 @@
-import { WidgetConstructor } from "./WidgetConstructor"
+import { WidgetConstructor } from "./WidgetConstructor";
 
 export default interface Addon {
-    iframeSource: string
-    widgets: Array<WidgetConstructor>
+  iframeSource: string;
+  widgets: Array<WidgetConstructor>;
 }

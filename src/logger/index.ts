@@ -1,6 +1,6 @@
-import log from "loglevel"
+import log from "loglevel";
 
-const logger = log.noConflict()
-logger.setDefaultLevel("TRACE")
+const logger = log.noConflict();
+logger.setDefaultLevel("TRACE");
 
-export default logger
+export default logger;

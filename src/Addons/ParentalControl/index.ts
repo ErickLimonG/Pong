@@ -3,8 +3,8 @@ import ToggleAllWeekWidget from "./ToggleAllWeek/ToggleAllWeekButtonWidget";
 import Addon from "@/interfaces/Addon";
 
 const ParentalControlAddon: Addon = {
-    iframeSource: 'parental-ctrl',
-    widgets: [ToggleAllWeekWidget]
-}
+  iframeSource: "parental-ctrl",
+  widgets: [ToggleAllWeekWidget],
+};
 
-export default ParentalControlAddon
+export default ParentalControlAddon;
