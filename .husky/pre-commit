@@ -1,0 +1,2 @@
+host-spawn pnpx lint-staged
+

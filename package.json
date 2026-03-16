@@ -12,7 +12,8 @@
     "zip": "wxt zip",
     "zip:f": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
-    "postinstall": "wxt prepare"
+    "postinstall": "wxt prepare",
+    "prepare": "husky && husky install"
   },
   "dependencies": {
     "loglevel": "^1.9.2",
@@ -20,10 +21,22 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@eslint/css": "^1.0.0",
+    "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "@wxt-dev/module-react": "^1.1.5",
+    "eslint": "^10.0.3",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "3.8.1",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.0",
     "wxt": "^0.20.17"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,css,md}": "prettier --write"
   }
 }
