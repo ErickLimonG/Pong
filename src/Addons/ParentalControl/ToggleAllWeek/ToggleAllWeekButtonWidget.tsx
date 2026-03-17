@@ -17,7 +17,7 @@ class ToggleAllWeekWidget implements Widget {
 
   init(iframeDoc: Document) {
     logger.debug("ToggleAllWeekWidget instantiated");
-    const inputs = iframeDoc.querySelectorAll(daysTableString + " > td input"); // daysTableString + " > td input"
+    const inputs = iframeDoc.querySelectorAll(daysTableString + " > td input");
     const allDayInputs = Array.from(inputs) as HTMLInputElement[];
     return <ToggleAllWeekButton allDayInputs={allDayInputs} />;
   }
