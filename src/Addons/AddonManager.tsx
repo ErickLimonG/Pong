@@ -11,6 +11,7 @@ class AddonManager {
   static removeReactRootIfExists(document: Document) {
     const existingWrapper = document.getElementById("react-root");
     if (existingWrapper) {
+      // TODO: check if not unmounting root incurs perfomrance penalty
       existingWrapper.remove();
     }
   }
