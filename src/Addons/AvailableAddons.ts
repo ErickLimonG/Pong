@@ -1,4 +1,4 @@
-import ParentalControlAddon from "./ParentalControl";
+import ParentalControlAddon from "./ParentalControl/ParentalControlAddon";
 
 const availableAddons = [ParentalControlAddon];
 
