@@ -1,5 +1,5 @@
-import AddonManager from "@/Addons/AddonManager";
-import isIframe from "@/Addons/helpers/isIframe";
+import AddonManager from "@/managers/Addon";
+import isIframe from "@/helpers/isIframe";
 
 export default defineContentScript({
   matches: ["*://*/*"],
