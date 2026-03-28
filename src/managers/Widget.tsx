@@ -26,8 +26,7 @@ function WidgetPortal({ widget }: { widget: Widget }) {
   const iframeDocument = useContext(WidgetContext);
   if (!iframeDocument) return;
 
-  const widgetReactElement = widget.init(iframeDocument);
   const targetElement = iframeDocument.querySelector(widget.destinationQuery);
 
-  return createPortal(widgetReactElement, targetElement);
+  return createPortal(widget.component, targetElement);
 }
