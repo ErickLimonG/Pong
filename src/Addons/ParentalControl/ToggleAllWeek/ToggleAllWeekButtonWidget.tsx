@@ -2,7 +2,7 @@ import Widget from "@/interfaces/Widget";
 import ToggleAllWeekButton from "./ToggleAllWeekButton";
 import { ToggleAllWeekDomAdapter } from "./DomAdapter/ToggleAllWeekDomAdapter";
 import IToggleAllWeekDomAdapter from "./DomAdapter/IToggleAllWeekDomAdapter";
-import component from "@/interfaces/component";
+import createComponent from "@/helpers/createComponent";
 
 class ToggleAllWeekWidget implements Widget {
   private adapter: IToggleAllWeekDomAdapter;
@@ -15,11 +15,10 @@ class ToggleAllWeekWidget implements Widget {
     const dayInputs = this.adapter.findDayInputs();
     const allDayInputs = dayInputs as HTMLInputElement[];
 
-    const toggleAllWeek: component = {
-      destinationQuery:
-        "body > form:nth-child(3) > div:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) > th:nth-child(1)",
-      component: <ToggleAllWeekButton allDayInputs={allDayInputs} />,
-    };
+    const toggleAllWeek = createComponent(
+      "body > form:nth-child(3) > div:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) > th:nth-child(1)",
+      <ToggleAllWeekButton allDayInputs={allDayInputs} />,
+    );
 
     return [toggleAllWeek];
   }

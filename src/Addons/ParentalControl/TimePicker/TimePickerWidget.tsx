@@ -1,7 +1,7 @@
 import Widget from "@/interfaces/Widget";
 import ITimePickerDomAdapter from "./DomAdapter/ITimePickerDomAdapter";
 import TimePickerDomAdapter from "./DomAdapter/TimePickerDomAdapter";
-import component from "@/interfaces/component";
+import createComponent from "@/helpers/createComponent";
 
 export default class TimePickerWidget implements Widget {
   adapter: ITimePickerDomAdapter;
@@ -41,17 +41,15 @@ export default class TimePickerWidget implements Widget {
 
     if (!(startTimeCell && endTimeCell)) return;
 
-    const startTimePicker: component = {
-      destinationQuery:
-        "body > form:nth-child(3) > div.data_common.data_common_notitle > table:nth-child(3) > tbody > tr:nth-child(1) > td",
-      component: this.createTimePicker(startHourInput, startMinuteInput),
-    };
+    const startTimePicker = createComponent(
+      "body > form:nth-child(3) > div.data_common.data_common_notitle > table:nth-child(3) > tbody > tr:nth-child(1) > td",
+      this.createTimePicker(startHourInput, startMinuteInput),
+    );
 
-    const endTimePicker: component = {
-      destinationQuery:
-        "body > form:nth-child(3) > div.data_common.data_common_notitle > table:nth-child(3) > tbody > tr:nth-child(2) > td",
-      component: this.createTimePicker(endHourInput, endMinuteInput),
-    };
+    const endTimePicker = createComponent(
+      "body > form:nth-child(3) > div.data_common.data_common_notitle > table:nth-child(3) > tbody > tr:nth-child(2) > td",
+      this.createTimePicker(endHourInput, endMinuteInput),
+    );
 
     this.adapter.cleanupTimeRowsChildren();
 
