@@ -62,9 +62,11 @@ class AddonManager {
 
   static createReactRoot(): ReactDOM.Root {
     AddonManager.removeReactRootIfPresent(this.document);
+
     const rootDiv = AddonManager.createReactRootDiv(this.document);
     this.document.body.append(rootDiv);
     const root = ReactDOM.createRoot(rootDiv);
+
     return root;
   }
 
