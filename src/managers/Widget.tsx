@@ -26,7 +26,15 @@ function WidgetPortal({ widget }: { widget: Widget }) {
   const iframeDocument = useContext(WidgetContext);
   if (!iframeDocument) return;
 
-  const targetElement = iframeDocument.querySelector(widget.destinationQuery);
+  const portals = [];
 
-  return createPortal(widget.component, targetElement);
+  for (const component of widget.components) {
+    const targetElement = iframeDocument.querySelector(
+      component.destinationQuery,
+    );
+
+    portals.push(createPortal(component.component, targetElement));
+  }
+
+  return portals;
 }
