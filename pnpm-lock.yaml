@@ -11,6 +11,9 @@ importers:
       loglevel:
         specifier: ^1.9.2
         version: 1.9.2
+      mac-oui-lookup:
+        specifier: ^1.1.4
+        version: 1.1.4
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -1854,6 +1857,9 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  mac-oui-lookup@1.1.4:
+    resolution: {integrity: sha512-VuzR8PnMef92j86Mspx8gRwEtW3DjIR2xu2G5x3ezszdopEjVhrrI0r9SpkfPqJMQbsbWRnJrFxTKMXiUaJHHQ==}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -4577,6 +4583,8 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  mac-oui-lookup@1.1.4: {}
 
   magic-string@0.30.21:
     dependencies:
