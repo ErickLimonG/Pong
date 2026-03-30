@@ -13,7 +13,8 @@
     "zip:f": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install",
+    "test": "vitest"
   },
   "dependencies": {
     "loglevel": "^1.9.2",
@@ -35,6 +36,7 @@
     "prettier": "3.8.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.0",
+    "vitest": "^4.1.2",
     "wxt": "^0.20.17"
   },
   "lint-staged": {
