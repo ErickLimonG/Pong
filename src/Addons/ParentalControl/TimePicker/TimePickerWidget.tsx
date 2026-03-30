@@ -19,10 +19,11 @@ export default class TimePickerWidget implements Widget {
   }
 
   createTimePicker(hourInput: Element, minuteInput: Element) {
-    const syncTimeValues = (event) => {
-      console.log(`timepicker value:${event.target.value}`);
+    const syncTimeValues = (event: React.ChangeEvent<HTMLInputElement>) => {
       let [hour, minute] = event.target.value.split(":");
+
       if (!minute) minute = "00";
+
       (hourInput as HTMLInputElement).value = hour;
       (minuteInput as HTMLInputElement).value = minute;
     };
