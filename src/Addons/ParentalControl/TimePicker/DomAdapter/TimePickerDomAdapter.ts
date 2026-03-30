@@ -1,4 +1,6 @@
 import ITimePickerDomAdapter from "./ITimePickerDomAdapter";
+import cleanElementChildren from "@/helpers/cleanFormNode";
+import logger from "@/logger";
 
 export default class TimePickerDomAdapter implements ITimePickerDomAdapter {
   document: Document;
@@ -29,24 +31,17 @@ export default class TimePickerDomAdapter implements ITimePickerDomAdapter {
     return this.findEndTimeInputs()[0].parentElement;
   }
 
-  processDataRowNodes = (node: Node) => {
-    // Hide the original inputs
-    if (node.nodeType === Node.ELEMENT_NODE)
-      (node as Element).setAttribute("hidden", "true");
-    // Remove the ":" text nodes
-    if (node.nodeType === Node.TEXT_NODE) node.parentNode?.removeChild(node);
-  };
-
   cleanupTimeRowsChildren() {
     const timeInputsParents = new Set([
       this.findStartTimeCell(),
       this.findEndTimeCell(),
     ]);
 
-    timeInputsParents.forEach((tableData) => {
-      if (!tableData) return;
-      const children = [...(tableData as HTMLElement).childNodes];
-      children.forEach(this.processDataRowNodes);
-    });
+    if (timeInputsParents.has(null)) {
+      logger.warn("Couldnt get start and end time cells");
+      return;
+    }
+
+    timeInputsParents.forEach((cell) => cleanElementChildren(cell));
   }
 }
