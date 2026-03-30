@@ -1,6 +1,6 @@
 export default interface ITimePickerDomAdapter {
-  findStartTimeInputs(): Array<Element> | null;
-  findEndTimeInputs(): Array<Element> | null;
+  findStartTimeInputs(): Array<Element>;
+  findEndTimeInputs(): Array<Element>;
   findStartTimeCell(): Element | null;
   findEndTimeCell(): Element | null;
   createClocketInput(): HTMLInputElement | null;
