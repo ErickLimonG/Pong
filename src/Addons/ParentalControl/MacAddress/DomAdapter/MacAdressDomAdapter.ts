@@ -10,6 +10,6 @@ export default class MacAddressDomAdapter implements IMacAdressDomAdapter {
   findMacAddressInput() {
     return this.document.querySelector(
       "body > form:nth-child(3) > div.data_common.data_common_notitle > table:nth-child(1) > tbody > tr:nth-child(4) > td > input[type=text]",
-    );
+    ) as HTMLInputElement | null;
   }
 }
