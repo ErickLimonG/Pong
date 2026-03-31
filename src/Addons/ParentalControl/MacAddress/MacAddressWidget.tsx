@@ -2,7 +2,7 @@ import createComponent from "@/helpers/createComponent";
 import Widget from "@/interfaces/Widget";
 import MacAddressDomAdapter from "./DomAdapter/MacAdressDomAdapter";
 import IMacAdressDomAdapter from "./DomAdapter/IMacAdressDomAdapter";
-import cleanElementChildren from "@/helpers/cleanFormNode";
+import clearVisibleContent from "@/helpers/clearVisibleContent";
 import MacAddressInput from "./MacAddressInput";
 
 export default class MacAddressWidget implements Widget {
@@ -14,7 +14,7 @@ export default class MacAddressWidget implements Widget {
     const macAddressCell = this.adapter.findMacAddressInput()?.parentElement;
 
     if (macAddressCell) {
-      cleanElementChildren(macAddressCell);
+      clearVisibleContent(macAddressCell);
     }
   }
 
