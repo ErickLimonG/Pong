@@ -24,9 +24,12 @@ const macTests = [
   { mac: "66:84:f4:31:ef:1d", vendor: "No vendor detected" },
 ];
 
-test.each(macTests)("Mac should match $vendor", async ({ mac, vendor }) => {
-  const user = userEvent.setup();
-  render(<MacAddressInput originalMacAddressInput={findMacAddressInput()} />);
-  await user.type(screen.getByRole("textbox"), mac);
-  expect(screen.getByRole("status")).toHaveTextContent(vendor);
-});
+test.each(macTests)(
+  "Mac $mac should match $vendor",
+  async ({ mac, vendor }) => {
+    const user = userEvent.setup();
+    render(<MacAddressInput originalMacAddressInput={findMacAddressInput()} />);
+    await user.type(screen.getByRole("textbox"), mac);
+    expect(screen.getByRole("status")).toHaveTextContent(vendor);
+  },
+);
