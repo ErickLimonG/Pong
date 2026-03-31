@@ -1,9 +1,11 @@
 import isValidMacAddress from "@/helpers/isValidMacAddress";
 import getVendor from "mac-oui-lookup";
 
-export default function MacAddressInput(
-  originalMacAddressInput: Element | null,
-) {
+export default function MacAddressInput({
+  originalMacAddressInput,
+}: {
+  originalMacAddressInput: HTMLInputElement | null;
+}) {
   const [vendor, setVendor] = useState<string | null>(null);
 
   const updateVendor = (macAddressInput: string) => {
@@ -32,7 +34,7 @@ export default function MacAddressInput(
   return (
     <>
       <input type="text" onInput={onInput} placeholder="Enter MAC Address" />
-      <span>{vendor || "No vendor detected"}</span>
+      <span role="status">{vendor || "No vendor detected"}</span>
     </>
   );
 }
