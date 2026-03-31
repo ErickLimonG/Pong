@@ -1,3 +1,3 @@
 export default interface IMacAdressDomAdapter {
-  findMacAddressInput(): Element | null;
+  findMacAddressInput(): HTMLInputElement | null;
 }
