@@ -1,5 +1,5 @@
 import ITimePickerDomAdapter from "./ITimePickerDomAdapter";
-import cleanElementChildren from "@/helpers/cleanFormNode";
+import clearVisibleContent from "@/helpers/clearVisibleContent";
 import logger from "@/logger";
 
 export default class TimePickerDomAdapter implements ITimePickerDomAdapter {
@@ -42,6 +42,6 @@ export default class TimePickerDomAdapter implements ITimePickerDomAdapter {
       return;
     }
 
-    timeInputsParents.forEach((cell) => cleanElementChildren(cell));
+    timeInputsParents.forEach((cell) => clearVisibleContent(cell));
   }
 }
