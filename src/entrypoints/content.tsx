@@ -1,4 +1,4 @@
-import AddonManager from "@/managers/Addon";
+import AddonManager from "@/managers/AddonManager";
 import isIframe from "@/helpers/isIframe";
 
 export default defineContentScript({

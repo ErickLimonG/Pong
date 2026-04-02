@@ -1,35 +1,20 @@
 import Widget from "@/interfaces/Widget";
 import { WidgetConstructor } from "@/interfaces/WidgetConstructor";
 import logger from "@/logger";
-import ReactDOM from "react-dom/client";
 import availableAddons from "../Addons/AvailableAddons";
-import WidgetManager from "./Widget";
+import WidgetManager from "./WidgetManager";
 import ExtrinsicWidget from "@/interfaces/ExtrinsicWidget";
 import Addon from "@/interfaces/Addon";
 import { ExtrinsicWidgetConstructor } from "@/interfaces/ExtrinsicWidgetConstructor";
+import ReactRootManager from "./ReactRootManager/ReactRootManager";
 
-class AddonManager {
+export default class AddonManager {
   static iframe: HTMLIFrameElement;
 
   static get document() {
     const doc = AddonManager.iframe.contentDocument;
     if (!doc) return null;
     return doc;
-  }
-
-  static removeReactRootIfPresent() {
-    const existingWrapper = this.document.getElementById("react-root");
-    if (existingWrapper) {
-      // TODO: check if not unmounting root incurs performance penalty
-      existingWrapper.remove();
-    }
-  }
-
-  static createReactRootDiv() {
-    const wrapper = this.document.createElement("div");
-    wrapper.id = "react-root";
-    logger.debug(`wrapper,${wrapper}`);
-    return wrapper;
   }
 
   static createWidgets(widgets: WidgetConstructor[]): Widget[] {
@@ -60,16 +45,6 @@ class AddonManager {
     return widgetComponents;
   }
 
-  static createReactRoot(): ReactDOM.Root {
-    AddonManager.removeReactRootIfPresent(this.document);
-
-    const rootDiv = AddonManager.createReactRootDiv(this.document);
-    this.document.body.append(rootDiv);
-    const root = ReactDOM.createRoot(rootDiv);
-
-    return root;
-  }
-
   static renderExtrinsicWidgets(
     extrinsicWidgetConstructors: ExtrinsicWidgetConstructor[],
   ) {
@@ -85,9 +60,11 @@ class AddonManager {
   }
 
   static renderWidgets(widgetConstructors: WidgetConstructor[]) {
-    if (widgetConstructors) {
+    if (widgetConstructors && this.document !== null) {
       const widgets = AddonManager.createWidgets(widgetConstructors);
-      const root = AddonManager.createReactRoot();
+
+      const reactRootManager = new ReactRootManager(this.document);
+      const root = reactRootManager.createReactRoot();
 
       root.render(
         <WidgetManager widgets={widgets} iframeDocument={this.document} />,
@@ -126,5 +103,3 @@ class AddonManager {
     }
   }
 }
-
-export default AddonManager;
